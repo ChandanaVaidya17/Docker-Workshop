@@ -1,11 +1,10 @@
 # 🚀 Docker Workshop (Windows - Docker Desktop)
 
-## 📌 Workshop Overview
-Welcome to the **Docker Workshop**! This guide will help you understand Docker basics, containerization, networking, and Docker Compose on Windows using Docker Desktop.
+## Workshop Overview
+Docker basics, containerization, networking, and Docker Compose on Windows using Docker Desktop.
 
-## 📅 **Workshop Schedule**
 
-### 🔹 **1️⃣ Hour 1: Introduction to Docker**
+###  Introduction to Docker**
 #### Topics Covered:
 - What is Docker? Why use it?
 - Containers vs. Virtual Machines
@@ -24,7 +23,7 @@ docker info  # Docker system details
 
 ---
 
-### 🔹 **2️⃣ Hour 2: Working with Containers & Images**
+###  Working with Containers & Images**
 #### Topics Covered:
 - Pulling & Running Images (`docker pull nginx`)
 - Container Lifecycle (`start`, `stop`, `rm`, `logs`)
@@ -56,7 +55,7 @@ docker push username/my-nginx  # Push to Docker Hub
 
 ---
 
-### 🔹 **3️⃣ Hour 3: Volumes, Networking & Docker Compose**
+###  Volumes, Networking & Docker Compose**
 #### Topics Covered:
 - **Volumes & Persistent Storage**
 - **Networking in Docker** (Creating custom networks)
@@ -90,11 +89,6 @@ docker-compose down
 
 ---
 
-## 📂 **Project Files**
-- `Dockerfile` → Custom Image Build
-- `docker-compose.yml` → Multi-container app setup
-- Example `index.html` for Nginx customization
-
 ---
 
 ## 📖 **Resources & References**
@@ -104,4 +98,4 @@ docker-compose down
 
 ---
 
-⚡ **Happy Dockering! 🚀**
+⚡ **Happy Dockering! **
