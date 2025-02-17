@@ -1,6 +1,6 @@
-# 🚀 Docker Workshop (Windows - Docker Desktop)
+#  Docker Workshop 
 
-## Workshop Overview
+##  Overview
 Docker basics, containerization, networking, and Docker Compose on Windows using Docker Desktop.
 
 
