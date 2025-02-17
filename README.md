@@ -1,86 +1,107 @@
-# 🐳 Docker Workshop (Windows + Docker Desktop)
+# 🚀 Docker Workshop (Windows - Docker Desktop)
 
-## 🚀 Overview
-Welcome to the **Docker Workshop**! This guide will help you set up **Docker Desktop on Windows**, run containers, build custom images, and manage multi-container applications.
+## 📌 Workshop Overview
+Welcome to the **Docker Workshop**! This guide will help you understand Docker basics, containerization, networking, and Docker Compose on Windows using Docker Desktop.
 
-💻 **Prerequisites**
-- Windows 10/11 with WSL2 enabled
-- Docker Desktop installed (https://www.docker.com/products/docker-desktop)
-- Basic knowledge of the terminal
+## 📅 **Workshop Schedule**
 
----
-
-## 📅 Workshop Agenda
-
-### **1️⃣ Introduction to Docker**
-- What is Docker?
+### 🔹 **1️⃣ Hour 1: Introduction to Docker**
+#### Topics Covered:
+- What is Docker? Why use it?
 - Containers vs. Virtual Machines
-- Key Docker Concepts (Images, Containers, Volumes, Networks)
-- Installing Docker Desktop on Windows (WSL2 vs. Hyper-V)
+- Installing Docker Desktop (Windows)
+- Understanding **WSL2 vs. Hyper-V**
+- Running your first container
 
-📌 **[Go to Section →](./01-introduction/README.md)**
-
----
-
-### **2️⃣ Setting Up Docker on Windows**
-- Install and Configure Docker Desktop
-- Verify installation (`docker --version`, `docker info`)
-
-📌 **[Go to Section →](./02-setup/README.md)**
-
----
-
-### **3️⃣ Docker Basics**
-- Running your first container (`docker run hello-world`)
-- Managing containers (`docker ps`, `docker stop`, `docker rm`)
-- Pulling images from Docker Hub (`docker pull nginx`)
-- Writing a simple `Dockerfile`
-- Building and running a custom image
-
-📌 **[Go to Section →](./03-docker-basics/README.md)**
-
----
-
-### **4️⃣ Docker Compose**
-- What is Docker Compose?
-- Writing a `docker-compose.yml` file
-- Running multi-container apps (`docker-compose up -d`)
-
-📌 **[Go to Section →](./04-docker-compose/README.md)**
-
----
-
-### **5️⃣ Docker Volumes & Networking**
-- Persisting data with Docker Volumes
-- Creating and managing Docker Networks
-
-📌 **[Go to Section →](./05-volumes-networks/README.md)**
-
----
-
-### **6️⃣ Deploying Docker Containers**
-- Tagging and pushing an image to Docker Hub
-- Running containers on another machine
-
-📌 **[Go to Section →](./06-deployment/README.md)**
-
----
-
-## 🎯 Final Hands-on Challenge
-Deploy a **Flask + PostgreSQL** app using Docker Compose!
-
-📌 **[Go to Challenge →](./challenge/README.md)**
-
----
-
-## 📚 Resources
-- Official Docker Docs: [https://docs.docker.com/](https://docs.docker.com/)
-- Play with Docker: [https://labs.play-with-docker.com/](https://labs.play-with-docker.com/)
-- Docker Cheat Sheet: [https://dockerlabs.collabnix.com/docker/cheatsheet/](https://dockerlabs.collabnix.com/docker/cheatsheet/)
-
----
-
-## 👨‍💻 How to Clone and Use This Repo
+#### Hands-on:
 ```sh
-git clone https://github.com/YOUR_GITHUB/docker-workshop.git
-cd docker-workshop
+docker --version   # Check installation
+docker run hello-world  # Run first container
+docker ps  # List running containers
+docker images  # View downloaded images
+docker info  # Docker system details
+```
+
+---
+
+### 🔹 **2️⃣ Hour 2: Working with Containers & Images**
+#### Topics Covered:
+- Pulling & Running Images (`docker pull nginx`)
+- Container Lifecycle (`start`, `stop`, `rm`, `logs`)
+- Inspecting Containers (`exec`, `inspect`)
+- Writing a `Dockerfile` (Building Custom Images)
+- Tagging & Pushing Images to Docker Hub
+
+#### Hands-on:
+```sh
+docker pull nginx
+docker run -d -p 8080:80 nginx
+
+docker ps -a  # View all containers
+docker logs <container_id>  # View logs
+docker exec -it <container_id> sh  # Enter container
+```
+Creating a custom **Dockerfile**:
+```dockerfile
+FROM nginx:latest
+COPY index.html /usr/share/nginx/html/index.html
+```
+Build & Run:
+```sh
+docker build -t my-nginx .
+docker run -d -p 8080:80 my-nginx
+docker tag my-nginx username/my-nginx
+docker push username/my-nginx  # Push to Docker Hub
+```
+
+---
+
+### 🔹 **3️⃣ Hour 3: Volumes, Networking & Docker Compose**
+#### Topics Covered:
+- **Volumes & Persistent Storage**
+- **Networking in Docker** (Creating custom networks)
+- **Docker Compose** (Managing multiple containers)
+
+#### Hands-on:
+```sh
+docker volume create mydata
+docker run -d -v mydata:/data --name mycontainer alpine
+
+docker network create mynetwork
+docker run -d --net=mynetwork --name=web nginx
+```
+
+Using **Docker Compose**:
+```yaml
+version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+  redis:
+    image: redis
+```
+Run:
+```sh
+docker-compose up -d
+docker-compose down
+```
+
+---
+
+## 📂 **Project Files**
+- `Dockerfile` → Custom Image Build
+- `docker-compose.yml` → Multi-container app setup
+- Example `index.html` for Nginx customization
+
+---
+
+## 📖 **Resources & References**
+- [Docker Documentation](https://docs.docker.com/)
+- [Docker Hub](https://hub.docker.com/)
+- [Docker Cheat Sheet](https://dockerlabs.collabnix.com/docker/cheatsheet/)
+
+---
+
+⚡ **Happy Dockering! 🚀**
