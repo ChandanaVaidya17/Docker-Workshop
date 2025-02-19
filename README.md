@@ -9,7 +9,6 @@ Docker basics, containerization, networking, and Docker Compose on Windows using
 - What is Docker? Why use it?
 - Containers vs. Virtual Machines
 - Installing Docker Desktop (Windows)
-- Understanding **WSL2 vs. Hyper-V**
 - Running your first container
 
 #### Hands-on:
