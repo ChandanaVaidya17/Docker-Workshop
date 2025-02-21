@@ -26,7 +26,6 @@ docker info  # Docker system details
 #### Topics Covered:
 - Pulling & Running Images (`docker pull nginx`)
 - Container Lifecycle (`start`, `stop`, `rm`, `logs`)
-- Inspecting Containers (`exec`, `inspect`)
 - Writing a `Dockerfile` (Building Custom Images)
 - Tagging & Pushing Images to Docker Hub
 
