@@ -1,5 +1,3 @@
-# Docker Guide
-
 ## 1. Pulling & Running Images
 
 To pull an official image from Docker Hub, use:
@@ -107,5 +105,5 @@ docker pull mydockerhubusername/my-custom-ubuntu:v1
 
 ---
 
-This guide covers the essential Docker topics with ready-to-use commands. Copy and paste it into your documentation!
+This README covers the essential Docker topics with ready-to-use commands. Copy and paste it into your documentation!
 
