@@ -1,59 +1,72 @@
+# Docker Guide (Windows Version)
+
+## Overview
+This README provides a comprehensive guide on working with Docker on **Windows**, including pulling images, managing container lifecycles, inspecting containers, writing Dockerfiles, and pushing images to Docker Hub.
+
+**Note:** This guide is for Windows users running **Docker Desktop** with either **PowerShell** or **Command Prompt (CMD)**. 
+
 ## 1. Pulling & Running Images
 
 To pull an official image from Docker Hub, use:
-```bash
+```powershell
 # Pull MySQL image from Docker Hub
 docker pull mysql
 ```
 
 To run a container from the image:
-```bash
+```powershell
 # Run MySQL container with environment variables
 docker run --name my-mysql -e MYSQL_ROOT_PASSWORD=root -d mysql
 ```
 
 To verify the running container:
-```bash
+```powershell
 docker ps
 ```
 
 ## 2. Container Lifecycle
 
 ### Start a Stopped Container
-```bash
+```powershell
 docker start my-mysql
 ```
 
 ### Stop a Running Container
-```bash
+```powershell
 docker stop my-mysql
 ```
 
 ### Remove a Container
-```bash
+```powershell
 docker rm my-mysql
 ```
 
 ### View Container Logs
-```bash
+```powershell
 docker logs my-mysql
 ```
 
 ## 3. Inspecting Containers
 
 ### Enter a Running Container
-```bash
-docker exec -it my-mysql bash
+- **PowerShell:**
+```powershell
+docker exec -it my-mysql powershell
+```
+
+- **CMD:**
+```cmd
+docker exec -it my-mysql cmd
 ```
 
 ### Inspect Container Details
-```bash
+```powershell
 docker inspect my-mysql
 ```
 
 ## 4. Writing a Dockerfile (Building Custom Images)
 Create a `Dockerfile`:
-```Dockerfile
+```dockerfile
 # Use Ubuntu as the base image
 FROM ubuntu:latest
 
@@ -71,39 +84,36 @@ CMD ["bash"]
 ```
 
 ### Build the Custom Image
-```bash
+```powershell
 docker build -t my-custom-ubuntu .
 ```
 
 ### Run a Container from the Custom Image
-```bash
+```powershell
 docker run -it --name custom-container my-custom-ubuntu
 ```
 
 ## 5. Tagging & Pushing Images to Docker Hub
 
 ### Log in to Docker Hub
-```bash
+```powershell
 docker login
 ```
 
 ### Tag the Image
-```bash
+```powershell
 docker tag my-custom-ubuntu mydockerhubusername/my-custom-ubuntu:v1
 ```
 
 ### Push the Image to Docker Hub
-```bash
+```powershell
 docker push mydockerhubusername/my-custom-ubuntu:v1
 ```
 
 Now, the image is available on Docker Hub for others to pull.
 
-```bash
+```powershell
 docker pull mydockerhubusername/my-custom-ubuntu:v1
 ```
 
 ---
-
-This README covers the essential Docker topics with ready-to-use commands. Copy and paste it into your documentation!
-
