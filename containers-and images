@@ -1,0 +1,111 @@
+# Docker Guide
+
+## 1. Pulling & Running Images
+
+To pull an official image from Docker Hub, use:
+```bash
+# Pull MySQL image from Docker Hub
+docker pull mysql
+```
+
+To run a container from the image:
+```bash
+# Run MySQL container with environment variables
+docker run --name my-mysql -e MYSQL_ROOT_PASSWORD=root -d mysql
+```
+
+To verify the running container:
+```bash
+docker ps
+```
+
+## 2. Container Lifecycle
+
+### Start a Stopped Container
+```bash
+docker start my-mysql
+```
+
+### Stop a Running Container
+```bash
+docker stop my-mysql
+```
+
+### Remove a Container
+```bash
+docker rm my-mysql
+```
+
+### View Container Logs
+```bash
+docker logs my-mysql
+```
+
+## 3. Inspecting Containers
+
+### Enter a Running Container
+```bash
+docker exec -it my-mysql bash
+```
+
+### Inspect Container Details
+```bash
+docker inspect my-mysql
+```
+
+## 4. Writing a Dockerfile (Building Custom Images)
+Create a `Dockerfile`:
+```Dockerfile
+# Use Ubuntu as the base image
+FROM ubuntu:latest
+
+# Install dependencies
+RUN apt-get update && apt-get install -y curl vim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy files into the container
+COPY . /app
+
+# Default command
+CMD ["bash"]
+```
+
+### Build the Custom Image
+```bash
+docker build -t my-custom-ubuntu .
+```
+
+### Run a Container from the Custom Image
+```bash
+docker run -it --name custom-container my-custom-ubuntu
+```
+
+## 5. Tagging & Pushing Images to Docker Hub
+
+### Log in to Docker Hub
+```bash
+docker login
+```
+
+### Tag the Image
+```bash
+docker tag my-custom-ubuntu mydockerhubusername/my-custom-ubuntu:v1
+```
+
+### Push the Image to Docker Hub
+```bash
+docker push mydockerhubusername/my-custom-ubuntu:v1
+```
+
+Now, the image is available on Docker Hub for others to pull.
+
+```bash
+docker pull mydockerhubusername/my-custom-ubuntu:v1
+```
+
+---
+
+This guide covers the essential Docker topics with ready-to-use commands. Copy and paste it into your documentation!
+
