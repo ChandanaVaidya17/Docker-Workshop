@@ -1,9 +1,3 @@
-# Docker Guide (Windows Version)
-
-## Overview
-This README provides a comprehensive guide on working with Docker on **Windows**, including pulling images, managing container lifecycles, inspecting containers, writing Dockerfiles, and pushing images to Docker Hub.
-
-**Note:** This guide is for Windows users running **Docker Desktop** with either **PowerShell** or **Command Prompt (CMD)**. 
 
 ## 1. Pulling & Running Images
 
